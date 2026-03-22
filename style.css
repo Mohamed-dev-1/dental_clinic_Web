@@ -1,0 +1,766 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(210, 234, 255, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(0, 8, 114);
+}
+
+body p{
+    color: black;
+}
+
+.container
+{
+            max-width: 1400px;
+            margin : 20px auto;
+            padding : 20px;
+            background-color:rgba(33, 45, 89, 0);
+}
+
+.contact_button
+{
+    text-decoration: none;
+    background-color: rgb(11, 0, 72);
+    padding: 8px;
+    color: aliceblue;
+    border-radius: 19px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.contact_button:hover  /* what happens when you hover on the contact button of the header */
+{
+    transform:translateY(-2px); /* makes the button goes up with 2 px*/
+    opacity: 1;
+    background: rgb(0, 100, 213);
+    box-shadow:0 0px 10px rgb(0, 0, 83);
+
+}
+
+
+
+.bookButton
+{
+    text-decoration: none;
+    background-color: rgb(0, 85, 183);
+    padding: 12px;
+    color: aliceblue;
+    border-radius: 19px;
+    font-size: 16px;
+    font-weight: 530;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+.bookButton:hover
+{
+    color: black;
+    background-color: rgb(196, 236, 255);
+    box-shadow: 0px 0px 30px rgb(4, 127, 189);
+    
+}
+
+.logo img
+{
+    width: 100px;
+}
+
+header
+{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            margin: 0px 10px 10px 10px;
+            background-color: #0063b900;
+            border: 0px solid rgb(0, 21, 75);
+            padding: 6px 16px 6px 16px;
+            border-radius: 30px;
+
+}
+
+
+a{
+    text-decoration: none;
+}
+
+nav ul 
+{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 50px;
+    align-items: center;
+}
+
+nav ul li
+{
+    cursor: pointer;
+    color: rgb(0, 28, 52);
+    font-size: 19px;
+    font-weight: 600;
+    font-style: bold;
+}
+
+nav ul li:hover
+{
+    text-decoration: underline;
+}
+
+.right
+{
+    margin: 0;
+    background-color: rgba(250, 235, 215, 0);
+    padding-left: 30px;
+    
+}
+
+
+
+.image
+{
+    width: 340px;
+    object-fit: cover; /* If the original image isn't square, it will crop the edges to fit nicely. */
+    border-radius: 0px;
+    /*border: 5px solid rgba(171, 198, 219, 0.455);
+    box-shadow: 0 0px 18px rgba(132, 140, 147, 0.831);*/
+    opacity: 0.9;
+    background-color: rgba(250, 235, 215, 0);
+    margin-left: 80px;
+        
+    
+}
+
+.hero
+{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    background: linear-gradient(rgb(255, 255, 255), rgba(71, 140, 244, 0.477),rgb(255, 255, 255));
+
+    padding: 60px 0px 20px 40px;
+    margin: 0px -56.5px 10px -56.5px; /* negative margin to counteract container padding */
+    
+
+   
+
+}
+
+
+/* now the About section's css styling*/
+
+.about
+{
+    background-image: 
+    
+    linear-gradient(rgb(255, 255, 255),rgba(71, 140, 244, 0.1),rgba(20, 66, 136, 0.577), rgba(0, 49, 124, 0.614), rgba(48, 120, 227, 0.577), rgba(255, 162, 176, 0.315),rgb(255, 255, 255)),
+    url(aboutBack.jpg);    
+
+    background-size: cover;
+    
+    
+    
+    margin: 0px -56.5px 10px -56.5px; /* negative margin to counteract container padding */
+}
+
+.about h1 
+{
+    color:rgb(255, 255, 255);
+    padding: 30px 0px 30px 30px;
+    
+}
+
+.about p
+{
+    color: rgba(255, 255, 255, 0.858);
+    padding: 10px 0px 10px 30px;
+    font-size: 18px;
+    
+}
+
+#aboutUsTopRight
+{
+    color: rgb(44, 130, 187);
+    font-size: 18px;
+    text-align: right;
+    font-weight: 550;
+    padding: 10px 30px 30px 20px;
+
+}
+
+.windows
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.experience
+{
+    font-size: 22px;
+    background-color: rgba(0, 6, 46, 0.5);
+    box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: left;
+    color:  rgb(255, 255, 255);
+}
+
+.satisfaction
+{
+    font-size: 22px;
+    background-color: rgba(0, 6, 46, 0.5);
+    box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: left;
+    color:  rgb(255, 255, 255);
+
+}
+
+.smiles
+{
+    font-size: 22px;
+    background-color: rgba(0, 6, 46, 0.5);
+    box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: left;
+    color:  rgb(255, 255, 255);
+}
+
+
+.experts
+{
+    font-size: 22px;
+    background-color: rgba(0, 6, 46, 0.5);
+    box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: left;
+    color:  rgb(255, 255, 255);
+
+}
+
+
+/* now the Specialists section's css styling*/
+
+
+#specialists_pageTitle
+{
+    color: rgb(44, 130, 187);
+    font-size: 18px;
+    text-align: right;
+    font-weight: 550;
+    padding: 15px 0px 30px 10px;
+    margin-top: 15px;
+}
+
+#sentence1
+{
+    font-size: 48px;
+    color: rgba(0, 42, 115, 0.81);
+}
+
+.title1
+{
+    display:flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.images
+{
+    display:flex;
+    align-items: center;
+    gap: 1px;
+
+}
+
+#image1
+{
+    align-items: center;
+   
+}
+
+#image2
+{
+    align-items: center;
+    
+}
+
+#image3
+{
+    align-items: center;
+}
+
+#image4
+{
+    background-color:  rgba(0, 42, 115, 0.925);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* or 100px works too */
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sentence2
+{
+    font-size: 48px;
+    color: rgba(0, 42, 115, 0.81);
+}
+
+#teamDescription
+{
+    color: rgba(0, 0, 82, 0.707);
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.cardsContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+
+}
+
+
+.card
+{
+    border-radius: 15px;
+    background-color: rgb(5, 46, 99);
+    padding: 15px;
+    width: 300px; /* Fixed width for all cards */
+    align-items: center; /* This centers everything horizontally */
+    justify-content: center;
+    
+}
+
+
+#cardsParagraph
+{
+    color: rgba(255, 255, 255, 0.829);
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    min-height: 50px; /* Reserve space for text so cards stay same height */
+}
+
+#cardsH
+{
+    color: aliceblue;
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+.imgCard
+{
+    width: 100%; /* Takes full card width */
+    height: 280px; /* Fixed height for consistency */
+    object-fit: cover; /* Crops image nicely */
+    border-radius: 10px;
+    display: block; /* This is important! */
+    margin: 0 auto 15px auto; /* Centers the image: 0 top, auto left/right, 15px bottom */
+}
+
+
+/* now the testimonials section's css styling*/
+
+
+#pageTitle
+{
+    text-align: center;
+    padding-top: 50px;
+     color: rgba(27, 101, 150, 0.813);
+     font-size: 17px;
+     font-weight: 600;
+}
+
+#bigTitle
+{
+    text-align: center;
+    font-size: 54px;
+}
+
+#text1P
+{
+    padding-top: 20px;
+    text-align: center;
+    color: rgba(0, 19, 57, 0.805);
+    font-family:Arial, Helvetica, sans-serif
+}
+
+#text2P
+{
+    padding-top: 6px;
+    text-align: center;
+    color: rgba(0, 19, 57, 0.805);
+    font-family:Arial, Helvetica, sans-serif
+
+}
+
+.introTitle
+{
+   color: rgba(0, 23, 90, 0.77);
+   font-size: 28px; 
+}
+
+#introP
+{
+    font-size: 16px;
+    padding-top: 20px;
+    text-align: left;
+    color: rgba(0, 19, 57, 0.663);
+    font-family:Arial, Helvetica, sans-serif
+}
+
+#whatwedid
+{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: rgba(0, 23, 90, 0.77); 
+}
+
+.introlist
+{
+    padding-bottom: 8px;
+    color: rgba(0, 19, 57, 0.663);
+}
+
+.beforeAfterShow
+{
+    margin-top:70px;
+    
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.show
+{
+    display: flex;
+    gap: 15px;
+    background-color: rgba(0, 8, 65, 0.959);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.showimage
+{
+    width: 280px;
+    border-radius: 10px;
+}
+
+/* now the consultation styling : */
+
+#consultation_page
+{
+    text-align: center;
+    padding-top: 50px;
+    color: rgba(27, 101, 150, 0.813);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#consultationBigTitle
+{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 50px;
+}
+
+
+#sentence1_consultation
+{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: rgba(0, 23, 90, 0.77); 
+}
+
+#sentence2_consultation
+{
+    margin-top: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: rgba(0, 23, 90, 0.77); 
+}
+
+
+.part1
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.part2
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+#submit
+{
+    display: block;
+    margin: 50px auto 0 auto;
+    color:white;
+    background-color: rgb(0, 66, 142);
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    border-color: rgba(245, 245, 220, 0);
+    font-size: 15px;
+}
+
+#submit:hover
+{
+    background-color: rgb(0, 28, 49);
+    box-shadow: 0px 0px 30px rgb(12, 0, 101);
+}
+
+
+/*booking form styling*/
+
+
+/* ===== BOOKING SECTION ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+.booking {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8f6f2 0%, #eef0f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background circle */
+.booking::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(18, 52, 88, 0.05) 0%, transparent 70%);
+    top: -100px;
+    right: -150px;
+    pointer-events: none;
+}
+
+#consultation_page {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: #1a3a5c;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+#consultationBigTitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 300;
+    color: #0d1f35;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+    text-align: center;
+}
+
+#sentence1_consultation,
+#sentence2_consultation {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #7a8b9a;
+    margin: 0;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* ===== FORM CARD ===== */
+.form {
+    margin-top: 50px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 48px 52px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.03),
+        0 8px 24px rgba(13, 31, 53, 0.08),
+        0 32px 64px rgba(13, 31, 53, 0.06);
+    position: relative;
+}
+
+/* Thin top accent line */
+.form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 52px;
+    right: 52px;
+    height: 2px;
+    background: linear-gradient(90deg, #1a3a5c, #4a90b8);
+    border-radius: 0 0 2px 2px;
+}
+
+.part1, .part2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+/* ===== INPUTS ===== */
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 14px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #0d1f35;
+    background: #f8f9fc;
+    border: 1.5px solid #e4e8f0;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input::placeholder {
+    color: #b0bbc8;
+    font-weight: 300;
+}
+
+input:focus,
+select:focus {
+    background: #ffffff;
+    border-color: #1a3a5c;
+    box-shadow: 0 0 0 4px rgba(26, 58, 92, 0.08);
+}
+
+input:hover,
+select:hover {
+    border-color: #c0cad8;
+}
+
+/* Custom select arrow */
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a3a5c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+    color: #0d1f35;
+}
+
+/* Date input */
+input[type="date"] {
+    color: #0d1f35;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+#submit {
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0d1f35 0%, #1a3a5c 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#submit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a3a5c, #2d6a9f);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#submit:hover::after {
+    opacity: 1;
+}
+
+#submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 31, 53, 0.3);
+}
+
+#submit:active {
+    transform: translateY(0);
+}
+
+/* ===== ERROR SPANS ===== */
+.error {
+    font-family: 'DM Sans', sans-serif;
+    color: #c0392b;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    padding-left: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 520px) {
+    .form {
+        padding: 36px 28px;
+    }
+    .part1, .part2 {
+        grid-template-columns: 1fr;
+    }
+    .form::before {
+        left: 28px;
+        right: 28px;
+    }
+}
