@@ -1,0 +1,14 @@
+/*
+    this file Contains the definitions of the Fonts and Colors within the Project
+*/
+
+/*
+    this :root contains the colors used in the project so they are unifed and defined under pre-determend names as a global variables
+*/
+:root {
+    --base-white: #e8e8e8;
+    --base-gray-light: #7f93b8;
+    --base-gray-dark: #4f6282;
+    --base-blue-dark: #0e1624;
+    --base-black: #151314;
+}
