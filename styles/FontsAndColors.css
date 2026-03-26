@@ -3,12 +3,20 @@
 */
 
 /*
-    this :root contains the colors used in the project so they are unifed and defined under pre-determend names as a global variables
+    this :root contains the colors and font sizes, margins, padding ... used in the project
+    so they are unifed and defined under pre-determend names as a global variables
 */
 :root {
+    /* Colors */
     --base-white: #e8e8e8;
     --base-gray-light: #7f93b8;
     --base-gray-dark: #4f6282;
-    --base-blue-dark: #0e1624;
+    --base-blue-dark: #031a28;
     --base-black: #151314;
+
+    /* Font Sizes */
+
+    /* margins ( also used for padding ) */
+
+    
 }
