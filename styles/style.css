@@ -1,9 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
+    width: 100vw; /* NEVER EVER GIVE EXPLICIT VALUES FOR THE WIDTH, ALWAYS USE DYNAMIC VALUES */
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(210, 234, 255, 0);
     background-size: cover;
@@ -11,87 +12,76 @@ body{
     color: rgb(0, 8, 114);
 }
 
-body p{
+p {
     color: black;
 }
 
-.container
-{
-            max-width: 1400px;
-            margin : 20px auto;
-            padding : 20px;
-            background-color:rgba(33, 45, 89, 0);
+.container {
+    background-color:rgba(33, 45, 89, 0);
 }
 
-.contact_button
-{
+/* bruh you have to work more on your naming styles, honestly */
+.contact_button {
     text-decoration: none;
     background-color: rgb(11, 0, 72);
-    padding: 8px;
+    padding: 8px 16px;
     color: aliceblue;
-    border-radius: 19px;
+    border-radius: 8px;
     font-size: 18px;
     font-weight: 600;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 0.4s; /* this transition durition makes the animation more smoother */
 }
 
-.contact_button:hover  /* what happens when you hover on the contact button of the header */
-{
-    transform:translateY(-2px); /* makes the button goes up with 2 px*/
-    opacity: 1;
+/* :hover ->  what happens when you hover on the contact button of the header */
+.contact_button:hover {
+    /* also this transition (in Y axis) is ugly NGL, it looks like something Ferraji gonna use XD */
+    /* opacity: 1 are the default value so you can just remove it */
     background: rgb(0, 100, 213);
     box-shadow:0 0px 10px rgb(0, 0, 83);
-
 }
 
-
-
-.bookButton
-{
+.bookButton {
+    width: fit-content;
+    box-sizing: border-box;
     text-decoration: none;
     background-color: rgb(0, 85, 183);
     padding: 12px;
     color: aliceblue;
-    border-radius: 19px;
+    border-radius: 8px;
     font-size: 16px;
     font-weight: 530;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
+    transition: 0.4s;
 }
 
-.bookButton:hover
-{
+.bookButton:hover {
     color: black;
     background-color: rgb(196, 236, 255);
     box-shadow: 0px 0px 30px rgb(4, 127, 189);
     
 }
 
-.logo img
-{
+.logo img {
     width: 100px;
 }
 
-header
-{
-            display: flex;
-            align-items: center;
-            justify-content: space-between; 
-            margin: 0px 10px 10px 10px;
-            background-color: #0063b900;
-            border: 0px solid rgb(0, 21, 75);
-            padding: 6px 16px 6px 16px;
-            border-radius: 30px;
-
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin: 0px 10px 10px 10px;
+    background-color: #0063b900;
+    border: 0px solid rgb(0, 21, 75);
+    padding: 6px 16px 6px 16px;
+    border-radius: 30px;
 }
 
-
-a{
+a {
     text-decoration: none;
 }
 
-nav ul 
-{
+nav ul {
     list-style: none;
     display: flex;
     margin: 0;
@@ -100,8 +90,7 @@ nav ul
     align-items: center;
 }
 
-nav ul li
-{
+nav ul li {
     cursor: pointer;
     color: rgb(0, 28, 52);
     font-size: 19px;
@@ -109,67 +98,52 @@ nav ul li
     font-style: bold;
 }
 
-nav ul li:hover
-{
+nav ul li:hover {
     text-decoration: underline;
 }
 
-.right
-{
-    margin: 0;
-    background-color: rgba(250, 235, 215, 0);
-    padding-left: 30px;
-    
+.left {
+    max-width: 45%;
 }
 
+.left h1 {
+    margin-bottom: 16px;
+}
 
+.left h4 {
+    margin-bottom: 36px;
+}
 
-.image
-{
-    width: 340px;
+.left p {
+    margin-bottom: 48px;
+}
+
+.image {
+    width: 25%;
     object-fit: cover; /* If the original image isn't square, it will crop the edges to fit nicely. */
     border-radius: 0px;
     /*border: 5px solid rgba(171, 198, 219, 0.455);
     box-shadow: 0 0px 18px rgba(132, 140, 147, 0.831);*/
     opacity: 0.9;
     background-color: rgba(250, 235, 215, 0);
-    margin-left: 80px;
-        
-    
 }
 
-.hero
-{
-    
+.hero {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    gap: 40px;
     background: linear-gradient(rgb(255, 255, 255), rgba(71, 140, 244, 0.477),rgb(255, 255, 255));
-
-    padding: 60px 0px 20px 40px;
-    margin: 0px -56.5px 10px -56.5px; /* negative margin to counteract container padding */
-    
-
-   
-
+    padding: 60px 0;
 }
 
 
 /* now the About section's css styling*/
-
 .about
 {
-    background-image: 
-    
-    linear-gradient(rgb(255, 255, 255),rgba(71, 140, 244, 0.1),rgba(20, 66, 136, 0.577), rgba(0, 49, 124, 0.614), rgba(48, 120, 227, 0.577), rgba(255, 162, 176, 0.315),rgb(255, 255, 255)),
+    background-image: linear-gradient(rgb(255, 255, 255),rgba(71, 140, 244, 0.1),rgba(20, 66, 136, 0.577), rgba(0, 49, 124, 0.614), rgba(48, 120, 227, 0.577), rgba(255, 162, 176, 0.315),rgb(255, 255, 255)),
     url(aboutBack.jpg);    
-
     background-size: cover;
-    
-    
-    
-    margin: 0px -56.5px 10px -56.5px; /* negative margin to counteract container padding */
+    /* bruh why you even need to counter the container padding ?? just don't add it in the first place */
 }
 
 .about h1 
@@ -181,10 +155,11 @@ nav ul li:hover
 
 .about p
 {
+    display: flex;
+    justify-content: center;
     color: rgba(255, 255, 255, 0.858);
-    padding: 10px 0px 10px 30px;
+    padding: 10px 30px;
     font-size: 18px;
-    
 }
 
 #aboutUsTopRight
@@ -205,8 +180,11 @@ nav ul li:hover
     padding: 30px;
 }
 
-.experience
-{
+.StatsCard {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width:15%;
     font-size: 22px;
     background-color: rgba(0, 6, 46, 0.5);
     box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
@@ -216,40 +194,13 @@ nav ul li:hover
     color:  rgb(255, 255, 255);
 }
 
-.satisfaction
-{
-    font-size: 22px;
-    background-color: rgba(0, 6, 46, 0.5);
-    box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: left;
-    color:  rgb(255, 255, 255);
-
+.StatsCard * {
+    display: inherit;
+    justify-content: center;
 }
 
-.smiles
-{
-    font-size: 22px;
-    background-color: rgba(0, 6, 46, 0.5);
-    box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: left;
-    color:  rgb(255, 255, 255);
-}
-
-
-.experts
-{
-    font-size: 22px;
-    background-color: rgba(0, 6, 46, 0.5);
-    box-shadow: 0px 0px 40px rgba(198, 122, 122, 0.436);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: left;
-    color:  rgb(255, 255, 255);
-
+.StatsCard h4 {
+    font-weight: 400;
 }
 
 
