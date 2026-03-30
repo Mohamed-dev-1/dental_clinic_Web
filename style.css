@@ -1,0 +1,628 @@
+:root {
+    --white: #F0EFF2;
+    --light-blue-gray: #91A3C4;
+    --dark-gray: #596D8C;
+    --dark-blue: #1D2E51;
+    --black: #0F0F12;
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: inherit;
+}
+
+p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Remove manual spacer breaks and rely on consistent section rhythm */
+section br {
+    display: none;
+}
+
+/* Shared container rhythm */
+.about,
+.services,
+.specialists,
+.testimonials,
+.booking {
+    padding: 80px 0;
+}
+
+.about > *,
+.specialistsContainer,
+.testimonials > *,
+.booking > * {
+    width: min(var(--container-width), 100%);
+    margin-inline: auto;
+    padding-inline: 24px;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--dark-blue);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(170deg, rgba(15, 15, 18, 0.164), rgba(29, 46, 81, 0.352));
+}
+
+.hero-header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    width: min(var(--container-width), 100%);
+    padding-inline: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.hero-brand {
+    color: var(--white);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.hero-nav-list {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    background: rgba(240, 239, 242, 0.12);
+    border: 1px solid rgba(240, 239, 242, 0.35);
+    border-radius: 999px;
+    padding: 6px;
+}
+
+.hero-nav-list a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--white);
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.hero-nav-list a:hover,
+.hero-nav-list li:first-child a {
+    background: rgba(145, 163, 196, 0.3);
+}
+
+.hero-text-back {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: clamp(2.9rem, 8.8vw, 10rem);
+    letter-spacing: 0.04em;
+    font-weight: 800;
+    color: rgba(145, 163, 196, 0.831);
+    white-space: nowrap;
+}
+
+.hero-subtitle {
+    position: absolute;
+    z-index: 3;
+    top: 42%;
+    color: var(--light-blue-gray);
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+}
+
+.hero-subtitle-left { left: 24px; }
+.hero-subtitle-right { right: 24px; }
+
+.hero-tooth {
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+    z-index: 3;
+    height: 54%;
+    width: auto;
+    opacity: 0.94;
+}
+
+.bookButton {
+    position: absolute;
+    z-index: 5;
+    right: 24px;
+    bottom: 28px;
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.bookButton:hover {
+    background: rgba(145, 163, 196, 0.35);
+}
+
+/* ABOUT - light section for rhythm contrast */
+.about {
+    background: var(--white);
+}
+
+#aboutUsTopRight {
+    text-align: right;
+    color: var(--dark-gray);
+    font-size: 0.88rem;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.about h1 {
+    max-width: 900px;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    color: var(--black);
+}
+
+.about p {
+    color: var(--dark-gray);
+    max-width: 760px;
+    font-size: 1rem;
+}
+
+.windows {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.experience,
+.satisfaction,
+.smiles,
+.experts {
+    background: rgba(145, 163, 196, 0.2);
+    border: 1px solid rgba(89, 109, 140, 0.2);
+    border-radius: 14px;
+    padding: 24px;
+    color: var(--black);
+}
+
+.windows h2 {
+    font-size: 2rem;
+    color: var(--dark-blue);
+    margin-bottom: 8px;
+}
+
+.windows h4 {
+    margin: 0;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+/* SERVICES - hero/important section color */
+.services {
+    background: var(--dark-blue);
+}
+
+.services-shell {
+    width: min(var(--container-width), 100%);
+    margin-inline: auto;
+    padding-inline: 24px;
+}
+
+.services-panel {
+    border-radius: 20px;
+}
+
+.services-kicker {
+    text-align: center;
+    color: var(--light-blue-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+}
+
+.services-title {
+    text-align: center;
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.services-subtitle {
+    color: var(--light-blue-gray);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 28px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.service-card {
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(145, 163, 196, 0.2);
+    min-height: 220px;
+    border: 1px solid rgba(240, 239, 242, 0.22);
+    position: relative;
+}
+
+.service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.service-card h3 {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    margin: 0;
+    color: var(--white);
+    font-size: 1.15rem;
+}
+
+.services-cta {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(240, 239, 242, 0.3);
+    transition: background-color 0.2s ease;
+}
+
+.services-cta:hover {
+    background: rgba(145, 163, 196, 0.35);
+}
+
+/* SPECIALISTS */
+.specialists {
+    background: var(--white);
+}
+
+#specialists_pageTitle {
+    text-align: center;
+    color: var(--dark-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.88rem;
+}
+
+.title1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+#sentence1,
+.sentence2 {
+    color: var(--black);
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    text-align: center;
+}
+
+.images {
+    display: flex;
+    align-items: center;
+}
+
+.images img {
+    width: 50px !important;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50% !important;
+    border: 2px solid var(--white);
+    margin-left: -10px;
+}
+
+#image4 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--dark-blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+}
+
+#teamDescription {
+    color: var(--dark-gray);
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 20px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cardsContainer {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background:  #021336;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid rgba(89, 109, 140, 0.2);
+}
+
+.imgCard {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+#cardsH {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+#cardsParagraph {
+    text-align: center;
+    color: var(--dark-gray);
+    min-height: 44px;
+}
+
+.card h5 {
+    color: var(--dark-gray) !important;
+}
+
+/* TESTIMONIALS - important dark block */
+.testimonials {
+    background: var(--dark-blue);
+}
+
+#pageTitle {
+    text-align: center;
+    color: var(--light-blue-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.88rem;
+}
+
+#bigTitle {
+    text-align: center;
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 3.3rem);
+}
+
+#text1P,
+#text2P {
+    text-align: center;
+    color: var(--light-blue-gray);
+}
+
+.beforeAfterShow {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.introTitle,
+#whatwedid {
+    color: var(--white);
+}
+
+#introP,
+.introlist {
+    color: var(--light-blue-gray);
+}
+
+.show {
+    background: rgba(240, 239, 242, 0.12);
+    border: 1px solid rgba(240, 239, 242, 0.25);
+    border-radius: 14px;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.showimage {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* BOOKING - small section rhythm */
+.booking {
+    padding: 60px 0;
+    background: var(--white);
+}
+
+#consultation_page {
+    text-align: center;
+    color: var(--dark-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.88rem;
+}
+
+#consultationBigTitle {
+    text-align: center;
+    color: var(--black);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+#sentence1_consultation,
+#sentence2_consultation {
+    text-align: center;
+    color: var(--dark-gray);
+}
+
+.form {
+    width: min(760px, 100%);
+    margin: 28px auto 0;
+    background: rgba(145, 163, 196, 0.2);
+    border: 1px solid rgba(89, 109, 140, 0.25);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.part1,
+.part2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(89, 109, 140, 0.35);
+    background: var(--white);
+    color: var(--black);
+}
+
+input::placeholder {
+    color: var(--dark-gray);
+}
+
+#submit {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#submit:hover {
+    background: rgba(145, 163, 196, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+    .windows {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cardsContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-header {
+        flex-direction: column;
+        top: 16px;
+        gap: 12px;
+    }
+
+    .hero-nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-subtitle {
+        display: none;
+    }
+
+    .hero-tooth {
+        height: 45%;
+    }
+
+    .bookButton {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
+
+    .beforeAfterShow {
+        grid-template-columns: 1fr;
+    }
+
+    .show {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .part1,
+    .part2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .about,
+    .services,
+    .specialists,
+    .testimonials {
+        padding: 60px 0;
+    }
+
+    .windows,
+    .cardsContainer,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
