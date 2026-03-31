@@ -471,11 +471,21 @@ section br {
 .introTitle,
 #whatwedid {
     color: var(--white);
+    font-family: "Michroma";
+    margin-bottom: 8px;
+}
+
+#whatwedid {
+    margin-top:24px;
 }
 
 #introP,
 .introlist {
     color: var(--light-blue-gray);
+}
+
+.introText-list-ul {
+    list-style: circle inside;
 }
 
 .show {
