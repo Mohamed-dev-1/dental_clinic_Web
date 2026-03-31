@@ -20,7 +20,7 @@ html {
 }
 
 body {
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
     background: var(--white);
     color: var(--black);
     line-height: 1.6;
@@ -193,9 +193,9 @@ section br {
     color: var(--dark-gray);
     font-size: 0.88rem;
     letter-spacing: 0.14em;
-    font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
+    font-family: "Michroma";
 }
 
 .about h1 {
@@ -264,7 +264,8 @@ section br {
     text-transform: uppercase;
     letter-spacing: 0.14em;
     font-size: 0.88rem;
-    margin-bottom: 8px;
+    font-family: "Michroma";
+    margin-bottom: 16px;
 }
 
 .services-title {
@@ -345,6 +346,8 @@ section br {
     text-transform: uppercase;
     letter-spacing: 0.14em;
     font-size: 0.88rem;
+    font-family: "Michroma";
+    margin-bottom: 16px;
 }
 
 .title1 {
@@ -439,6 +442,8 @@ section br {
     text-transform: uppercase;
     letter-spacing: 0.14em;
     font-size: 0.88rem;
+    font-family: "Michroma";
+    margin-bottom: 16px;
 }
 
 #bigTitle {
@@ -545,6 +550,10 @@ select {
     color: var(--dark-gray);
 }
 
+#bookdate {
+    padding: 12px 14px;
+}
+
 input::placeholder {
     color: var(--dark-gray);
 }
@@ -558,11 +567,12 @@ input::placeholder {
     color: var(--white);
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: 0.3s;
 }
 
 #submit:hover {
     background: rgba(145, 163, 196, 0.35);
+    color: var(--black)
 }
 
 /* Responsive */
