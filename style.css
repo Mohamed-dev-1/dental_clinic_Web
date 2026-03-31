@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 :root {
     --white: #F0EFF2;
     --light-blue-gray: #91A3C4;
@@ -132,20 +134,22 @@ section br {
     top: 30%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    font-size: clamp(2.9rem, 8.8vw, 10rem);
+    font-size: clamp(4rem, 5vw, 6rem);
     letter-spacing: 0.04em;
     font-weight: 800;
-    color: rgba(145, 163, 196, 0.831);
+    color: var(--white);
     white-space: nowrap;
+    font-family: "Michroma";
 }
 
 .hero-subtitle {
     position: absolute;
     z-index: 3;
     top: 42%;
-    color: var(--light-blue-gray);
+    color: var(--white);
     font-weight: 600;
     font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+    font-family: "Michroma";
 }
 
 .hero-subtitle-left { left: 24px; }
@@ -181,11 +185,11 @@ section br {
 
 /* ABOUT - light section for rhythm contrast */
 .about {
+    text-align: center;
     background: var(--white);
 }
 
 #aboutUsTopRight {
-    text-align: right;
     color: var(--dark-gray);
     font-size: 0.88rem;
     letter-spacing: 0.14em;
@@ -196,8 +200,11 @@ section br {
 
 .about h1 {
     max-width: 900px;
-    font-size: clamp(2rem, 4vw, 3.3rem);
+    font-size: clamp(1rem, 2vw, 3rem);
+    text-align: center;
+    font-family: "Michroma";
     color: var(--black);
+    margin-bottom: 24px;
 }
 
 .about p {
@@ -264,6 +271,7 @@ section br {
     text-align: center;
     color: var(--white);
     font-size: clamp(2rem, 4vw, 3.2rem);
+    font-family: "Michroma";
 }
 
 .services-subtitle {
@@ -280,12 +288,19 @@ section br {
 }
 
 .service-card {
+    display: flex;
+    justify-content: center;
     border-radius: 14px;
     overflow: hidden;
     background: rgba(145, 163, 196, 0.2);
     min-height: 220px;
     border: 1px solid rgba(240, 239, 242, 0.22);
     position: relative;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    box-shadow: 0 0 12px var(--light-blue-gray);
 }
 
 .service-card img {
@@ -297,11 +312,11 @@ section br {
 
 .service-card h3 {
     position: absolute;
-    left: 14px;
     bottom: 12px;
     margin: 0;
     color: var(--white);
-    font-size: 1.15rem;
+    font-size: 1rem;
+    font-family: "Michroma";
 }
 
 .services-cta {
@@ -345,20 +360,12 @@ section br {
     color: var(--black);
     font-size: clamp(2rem, 4vw, 3.1rem);
     text-align: center;
+    font-family: "Michroma";
+    margin-bottom: 8px;
 }
 
-.images {
-    display: flex;
-    align-items: center;
-}
-
-.images img {
-    width: 50px !important;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50% !important;
-    border: 2px solid var(--white);
-    margin-left: -10px;
+.sentence2 {
+    margin-bottom: 32px;
 }
 
 #image4 {
@@ -371,6 +378,7 @@ section br {
     align-items: center;
     justify-content: center;
     margin-left: -10px;
+    font-weight: 800;
 }
 
 #teamDescription {
@@ -437,6 +445,8 @@ section br {
     text-align: center;
     color: var(--white);
     font-size: clamp(2rem, 4vw, 3.3rem);
+    font-family: "Michroma";
+    margin-bottom: 32px;
 }
 
 #text1P,
@@ -496,6 +506,8 @@ section br {
     text-align: center;
     color: var(--black);
     font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Michroma";
+    margin-bottom: 32px;
 }
 
 #sentence1_consultation,
@@ -530,7 +542,7 @@ select {
     border-radius: 10px;
     border: 1px solid rgba(89, 109, 140, 0.35);
     background: var(--white);
-    color: var(--black);
+    color: var(--dark-gray);
 }
 
 input::placeholder {
