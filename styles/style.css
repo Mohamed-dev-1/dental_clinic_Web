@@ -681,3 +681,8 @@ input::placeholder {
         grid-template-columns: 1fr;
     }
 }
+
+#service_list {
+    color: var(--dark-gray);
+    padding: 12px 14px;
+}
