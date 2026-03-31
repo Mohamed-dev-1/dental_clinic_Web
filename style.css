@@ -298,6 +298,7 @@ section br {
     border: 1px solid rgba(240, 239, 242, 0.22);
     position: relative;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .service-card:hover {
@@ -404,7 +405,30 @@ section br {
     background:  #021336;
     border-radius: 14px;
     padding: 16px;
-    border: 1px solid rgba(89, 109, 140, 0.2);
+    transition: 0.3s;
+}
+
+.card-since {
+    color: var(--dark-gray);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 0 15px #021336;
+    cursor: pointer;
+}
+
+.card:hover #cardsH {
+    color: var(--dark-gray);
+}
+
+.card:hover #cardsParagraph {
+    color: var(--white);
+}
+
+.card:hover .card-since {
+    color: var(--white);
 }
 
 .imgCard {
@@ -419,17 +443,16 @@ section br {
     text-align: center;
     color: var(--white);
     margin-bottom: 8px;
+    transition: 0.3s;
 }
 
 #cardsParagraph {
     text-align: center;
     color: var(--dark-gray);
     min-height: 44px;
+    transition: 0.3s;
 }
 
-.card h5 {
-    color: var(--dark-gray) !important;
-}
 
 /* TESTIMONIALS - important dark block */
 .testimonials {
