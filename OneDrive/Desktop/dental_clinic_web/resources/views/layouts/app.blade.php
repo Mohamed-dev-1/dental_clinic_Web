@@ -1,0 +1,385 @@
+<!-- this file is like the main frame of the UI -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> AL-NADJAH ODF </title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+
+<!-- HERO section: Text 1| middle (image) | Text 2-->
+
+<section
+    class="hero relative min-h-screen h-screen w-full overflow-hidden"
+    style="background-image: url('{{ asset('images/hero_back.png') }}')"
+>
+
+    <header class="hero-header"> <!-- Top bar of the web -->
+        <div class="hero-brand">AL-NADJAH DENTAL</div>
+
+        <nav class="hero-nav" aria-label="Primary navigation">
+            <ul class="hero-nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-section">About us</a></li>
+                <li><a href="#services-section">Services</a></li>
+                <li><a href="#specialists-section">Specialists</a></li>
+                <li><a href="#testimonials-section">Testimonials</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-auth">
+            <a href="/login" class="hero-auth-login">Log in</a>
+            <a href="/register" class="hero-auth-signup">Sign up</a>
+        </div>
+
+    </header>
+
+    <div class="hero-text-back">AL-NADJAH DENTAL</div>
+    <p class="hero-subtitle hero-subtitle-left">COMFORTABLE DENTISTRY</p>
+    <p class="hero-subtitle hero-subtitle-right">FOR EVERYONE</p>
+
+    <img class="hero-tooth" src="{{ asset('images/hero_tooth.png') }}" loading="eager" fetchpriority="high" decoding="async" alt="Tooth model">
+
+
+
+    <a href="#booking-section" class="bookButton">Book online</a>
+</section>
+
+@yield('content')
+
+
+<!-- the hero section finishes here -->
+
+
+<section class="about" id="about-section">
+
+
+
+    <p id="aboutUsTopRight">ABOUT US</p> <br> <br> <br>
+
+    <h1> Crafting confident SMILES <br> Through advanced OrthoDontics </h1>
+
+    <p> AL-NADJAH ODF is a specialized orthodontic clinic dedicated to delivering <br>
+        modern, precise, and personalized treatments. Our mission is to create
+        healthy<br> and confident smiles through advanced techniques and exceptional patient care. </p>
+
+    <br> <br> <br> <br> <br>
+
+
+
+    <div class="windows">
+
+
+        <div class="experience">
+
+            <h2> +14 </h2> <br>
+
+            <h4 style="font-weight: 400;"> Years of excellence </h4>
+
+        </div>
+
+        <div class="satisfaction">
+
+            <h2> 91% </h2><br>
+
+            <h4 style="font-weight: 400;">Patient Satisfaction </h4>
+
+        </div>
+
+        <div class="smiles">
+
+            <h2> +5842 </h2><br>
+
+            <h4 style="font-weight: 400;"> Smiles transformed </h4>
+
+        </div>
+
+        <div class="experts">
+
+            <h2 > 21 </h2><br>
+
+            <h4 style="font-weight: 400;"> Certified experts  </h4>
+
+        </div>
+
+    </div>
+
+    <br><br><br><br>
+
+</section>
+
+<br>
+
+<!-- the About us section finishes here  -->
+
+
+
+<section class="services" id="services-section">
+
+    <div class="services-shell">
+        <div class="services-panel">
+            <p class="services-kicker">SERVICES</p>
+            <h1 class="services-title">Expert care for every smile</h1>
+            <p class="services-subtitle">
+                We offer a complete range of treatments tailored for oral health,
+                comfort, and long-term confidence.
+            </p>
+
+            <div class="services-grid">
+                <article class="service-card">
+                    <img src="{{ asset('images/teeth_aesthetic.jpeg') }}" alt="Aesthetic dentistry">
+                    <h3>aesthetics</h3>
+                </article>
+                <article class="service-card">
+                    <img src="{{ asset('images/teeth_orthodontics.jpeg')}}" alt="Orthodontics" >
+                    <h3>Orthodontics</h3>
+                </article>
+                <article class="service-card">
+                    <img src="{{ asset('images/teeth_implantology.jpeg')}}" alt="Implantology">
+                    <h3>Implantology</h3>
+                </article>
+                <article class="service-card">
+                    <img src="{{ asset('images/teeth_whitening.jpeg') }}" alt="Whitening">
+                    <h3>Whitening</h3>
+                </article>
+                <article class="service-card">
+                    <img src="{{ asset('images/teeth_surgery.jpeg') }}" alt="Surgical dentistry">
+                    <h3>Surgical dentistry</h3>
+                </article>
+            </div>
+
+            <a href="#booking-section" class="services-cta">Schedule a visit</a>
+        </div>
+    </div>
+</section>
+
+<section class="specialists" id="specialists-section">
+
+    <div class="specialistsContainer">
+
+        <p id="specialists_pageTitle"> SPECIALISTS </p> <br>
+
+        <div class="title1">
+
+            <h1 id="sentence1"> Meet the minds</h1>
+
+        </div>
+
+        <h1 class="sentence2"> behind your smile </h1> <br> <br> <br> <br>
+
+
+        <p id="teamDescription">
+            Our team is composed of highly qualified orthodontic specialists and dedicated dental professionals
+            committed to delivering precise<br>and personalized, and compassionate care.
+            Through continuous training and the use of advanced technologies, we ensure exceptional<br> treatment quality and outstanding patient experience.
+        </p>
+
+        <br>
+
+        <!-- now the doctors cards and the ability to go next or previous -->
+
+        <div class="cardsContainer">
+
+            <div class="card">
+
+                <img src="{{asset('images/doctor1.png')}}" class="imgCard" alt="doctor1 image">
+
+                <h3 id="cardsH"> Dr._______ </h3>
+
+                <p id="cardsParagraph">Expert in advanced OrthoDontics</p>
+
+                <h5 class="card-since"> since 2000 </h5>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <img src="{{asset('images/doctor2.png')}}" class="imgCard">
+
+                <h3 id="cardsH"> Dr._______ </h3>
+
+                <p id="cardsParagraph">Expert in dento-facial orthopedics</p>
+
+
+                <h5 class="card-since"> since 2016 </h5>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <img src="{{asset('images/doctor3.png')}}" class="imgCard">
+
+                <h3 id="cardsH" > Dr._______</h3>
+
+                <p id="cardsParagraph"> Specialized in Cosmetic Dentistry </p>
+
+                <h5 class="card-since"> since 2017 </h5>
+
+            </div>
+
+
+            <div class="card">
+
+                <img src="{{asset('images/doctor4.jpg')}}" class="imgCard">
+
+                <h3 id="cardsH"> Dr._______ </h3>
+
+                <p id="cardsParagraph">Expert in Pediatric OrthoDontics</p>
+
+                <h5 class="card-since"> since 2010 </h5>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- the specialists section ends here . -->
+
+<section class="testimonials" id="testimonials-section">
+
+    <p id="pageTitle"> TESTIMONIALS </p> <br> <br>
+
+    <h1 id="bigTitle"> Real Stories. Real smiles </h1>
+
+    <p id="text1P"> Patients consistently praised AL-NAJAH Dental Clinic for its welcoming staff, </p>
+
+    <p id="text2P"> modern facilities, and excellent quality of care. </p>
+
+
+    <div class="beforeAfterShow">
+
+
+        <div class="introText">
+
+            <h1 class="introTitle"> Cristina's smile:</h1>
+
+            <p id="introP"> Cristina felt self-concious about
+                the shape  <br> of her teeth. She wanted a natural ,
+                brighter <br>smile that felt like her own - just more balanced,<br> natural and confidently adorable smile . </p>
+
+            <h3 id="whatwedid"> What we did : </h3>
+
+            <ul class="introText-list-ul">
+                <li class="introlist"> smile design planning </li>
+                <li class="introlist"> tooth preparation </li>
+                <li class="introlist"> placement of vaneers </li>
+            </ul>
+
+        </div>
+
+
+
+        <div class="show">
+
+
+            <img class="showimage"  src="{{asset('images/before_braces.png')}}" >
+            <img class="showimage"  src="{{asset('images/withBraces.png')}}" >
+            <img class="showimage"  src="{{asset('images/afterBraces.png')}}" >
+
+
+        </div>
+
+
+    </div>
+
+    <br> <br> <br> <br>
+
+
+</section>
+
+<section class="booking" id="booking-section">
+
+    <p id="consultation_page"> CONSULTATION </p>
+    <h1 id="consultationBigTitle"> Book your first step </h1>
+
+    <p id="sentence1_consultation"> Choose your prefered date , treatment type, </p>
+    <p id="sentence2_consultation"> and we will handle the rest . </p>
+
+
+
+    <div class="form">
+
+        <form method="post" action="book.php">
+
+            <div class="part1">
+
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your name">
+                <input type="number" id="phonenumber" name="phonenumber" placeholder="Enter you phone number">
+
+            </div>
+
+            <div class="part2">
+
+                <select name="service" id="service_list">
+                    <option value="ODF"> ODF </option>
+                    <option value="OC"> OC </option>
+                    <option value="Prothese"> Prothese </option>
+
+                </select>
+
+                <input type="date" name="bookdate" id="bookdate">
+
+            </div>
+
+            <input type="submit" value="Send request" id="submit">
+
+        </form>
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+</html>
