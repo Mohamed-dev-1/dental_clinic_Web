@@ -20,8 +20,13 @@
             @csrf
 
             <div class="auth-field">
-                <label for="name">Full name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="auth-field">
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
             </div>
 
             <div class="auth-field">

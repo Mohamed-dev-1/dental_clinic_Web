@@ -31,7 +31,16 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/');
+
+            $role = Auth::user()->role;
+
+            if ($role === 'doctor') {
+                return redirect('/doctor/dashboard');
+            } elseif ($role === 'assistant') {
+                return redirect('/assistant/dashboard');
+            } else {
+                return redirect('/patient/dashboard');
+            }
         }
 
         return back()->withErrors([
@@ -39,24 +48,32 @@ class AuthController extends Controller
         ]);
     }
 
+
     // Handle register form submission
     public function register(Request $request)
     {
         $request->validate([
-            'name'                  => ['required', 'string', 'max:255'],
-            'email'                 => ['required', 'email', 'unique:users'],
-            'password'              => ['required', 'min:8', 'confirmed'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname'  => ['required', 'string', 'max:255'],
+            'email'     => ['required', 'email', 'unique:users'],
+            'password'  => ['required', 'min:8', 'confirmed'],
         ]);
 
         $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
+            'firstname' => $request->firstname,
+            'lastname'  => $request->lastname,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password),
+            'role'      => 'patient',
+        ]);
+
+        // Automatically create a patient record
+        \App\Models\Patient::create([
+            'user_id' => $user->id,
         ]);
 
         Auth::login($user);
-
-        return redirect('/');
+        return redirect('/patient/dashboard');
     }
 
     // Handle logout
