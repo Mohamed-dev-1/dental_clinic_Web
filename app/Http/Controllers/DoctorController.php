@@ -58,13 +58,7 @@ class DoctorController extends Controller
         return redirect()->back()->with('success', 'Patient deleted successfully.');
     }
 
-    // Show create medical document form
-    public function createMedicalDocument($patientId)
-    {
-        $patient = Patient::with('user')->findOrFail($patientId);
-        $appointments = Appointment::where('patient_id', $patientId)->get();
-        return view('dashboards.doctor_medical_form', compact('patient', 'appointments'));
-    }
+
 
     // Store medical document
     public function storeMedicalDocument(Request $request)

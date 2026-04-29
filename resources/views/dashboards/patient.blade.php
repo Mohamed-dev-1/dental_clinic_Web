@@ -155,49 +155,73 @@
             <form method="POST" action="{{ route('patient.bookAppointment') }}" class="patient-form">
                 @csrf
 
-                <div class="form-row">
-                    <div class="patient-field">
-                        <label>Select Doctor</label>
-                        <select name="doctor_id" required>
-                            <option value="">-- Choose a doctor --</option>
-                            @foreach($doctors as $doctor)
-                                <option value="{{ $doctor->id }}">
-                                    Dr. {{ $doctor->user->firstname }} {{ $doctor->user->lastname }} — {{ $doctor->speciality }}
-                                </option>
-                            @endforeach
-                        </select>
+                {{-- STEP 1 - APPOINTMENT DETAILS --}}
+                <div class="booking-step">
+                    <h4 class="booking-step-title">① Appointment Details</h4>
+
+                    <div class="form-row">
+                        <div class="patient-field">
+                            <label>Select Doctor</label>
+                            <select name="doctor_id" required>
+                                <option value="">-- Choose a doctor --</option>
+                                @foreach($doctors as $doctor)
+                                    <option value="{{ $doctor->id }}">
+                                        Dr. {{ $doctor->user->firstname }} {{ $doctor->user->lastname }} — {{ $doctor->speciality }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="patient-field">
+                            <label>Speciality</label>
+                            <select name="speciality">
+                                <option value="">-- Choose speciality --</option>
+                                <option value="Endodontics">Endodontics</option>
+                                <option value="Pediatric Dentistry">Pediatric Dentistry</option>
+                                <option value="Orthodontics">Orthodontics</option>
+                                <option value="Periodontics">Periodontics</option>
+                                <option value="Full Dental Exam">Full Dental Exam</option>
+                                <option value="General Dental Care">General Dental Care</option>
+                                <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="patient-field">
+                            <label>Date</label>
+                            <input type="date" name="appointment_date" required>
+                        </div>
+
+                        <div class="patient-field">
+                            <label>Time</label>
+                            <input type="time" name="appointment_time" required>
+                        </div>
                     </div>
 
                     <div class="patient-field">
-                        <label>Speciality</label>
-                        <select name="speciality">
-                            <option value="">-- Choose speciality --</option>
-                            <option value="Endodontics">Endodontics</option>
-                            <option value="Pediatric Dentistry">Pediatric Dentistry</option>
-                            <option value="Orthodontics">Orthodontics</option>
-                            <option value="Periodontics">Periodontics</option>
-                            <option value="Full Dental Exam">Full Dental Exam</option>
-                            <option value="General Dental Care">General Dental Care</option>
-                            <option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
-                        </select>
+                        <label>Complaint (optional)</label>
+                        <textarea name="complaint" rows="3" placeholder="Describe your complaint..."></textarea>
                     </div>
                 </div>
 
-                <div class="form-row">
+                {{-- STEP 2 - MEDICAL NOTES --}}
+                <div class="booking-step">
+                    <h4 class="booking-step-title">② Medical Notes
+                        @if($note)
+                            <span class="booking-prefilled">✓ Pre-filled from your saved notes</span>
+                        @endif
+                    </h4>
+
                     <div class="patient-field">
-                        <label>Date</label>
-                        <input type="date" name="appointment_date" required>
+                        <label>Allergies</label>
+                        <textarea name="allergies" rows="2" placeholder="List any allergies (e.g. penicillin, latex...)">{{ $note->allergies ?? '' }}</textarea>
                     </div>
 
                     <div class="patient-field">
-                        <label>Time</label>
-                        <input type="time" name="appointment_time" required>
+                        <label>Chronic Diseases</label>
+                        <textarea name="chronic_diseases" rows="2" placeholder="List any chronic diseases (e.g. diabetes, hypertension...)">{{ $note->chronic_diseases ?? '' }}</textarea>
                     </div>
-                </div>
-
-                <div class="patient-field">
-                    <label>Complaint (optional)</label>
-                    <textarea name="complaint" rows="3" placeholder="Describe your complaint..."></textarea>
                 </div>
 
                 <button type="submit" class="patient-submit">Book Appointment</button>

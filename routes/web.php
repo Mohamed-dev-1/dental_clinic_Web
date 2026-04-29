@@ -24,11 +24,10 @@ use App\Http\Controllers\DoctorController;
 
 // Doctor dashboard routes
 
-Route::middleware(['auth'])->group(function () {
+    Route::middleware(['auth'])->group(function () {
     Route::get('/doctor/dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
     Route::get('/doctor/search', [DoctorController::class, 'searchPatient'])->name('doctor.search');
     Route::delete('/doctor/patient/{id}', [DoctorController::class, 'deletePatient'])->name('doctor.deletePatient');
-    Route::get('/doctor/medical/{patientId}/create', [DoctorController::class, 'createMedicalDocument'])->name('doctor.createMedical');
     Route::post('/doctor/medical/store', [DoctorController::class, 'storeMedicalDocument'])->name('doctor.storeMedical');
     Route::patch('/doctor/appointment/{id}/accept', [DoctorController::class, 'acceptAppointment'])->name('doctor.acceptAppointment');
     Route::patch('/doctor/appointment/{id}/reject', [DoctorController::class, 'rejectAppointment'])->name('doctor.rejectAppointment');
@@ -39,7 +38,8 @@ Route::middleware(['auth'])->group(function () {
 use App\Http\Controllers\PatientController;
 
 // Patient routes
-Route::middleware(['auth'])->group(function () {
+
+    Route::middleware(['auth'])->group(function () {
     Route::get('/patient/dashboard', [PatientController::class, 'index'])->name('patient.dashboard');
     Route::post('/patient/profile/update', [PatientController::class, 'updateProfile'])->name('patient.updateProfile');
     Route::post('/patient/password/update', [PatientController::class, 'updatePassword'])->name('patient.updatePassword');
@@ -49,4 +49,21 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/patient/appointment/{id}/cancel', [PatientController::class, 'cancelAppointment'])->name('patient.cancelAppointment');
     Route::patch('/patient/notification/{id}/read', [PatientController::class, 'markNotificationRead'])->name('patient.markNotificationRead');
     Route::patch('/patient/notifications/read-all', [PatientController::class, 'markAllNotificationsRead'])->name('patient.markAllNotificationsRead');
+});
+
+
+// Assistant Routes
+
+use App\Http\Controllers\AssistantController;
+
+// Assistant routes
+
+    Route::middleware(['auth'])->group(function () {
+    Route::get('/assistant/dashboard', [AssistantController::class, 'index'])->name('assistant.dashboard');
+    Route::post('/assistant/patient/create', [AssistantController::class, 'createPatient'])->name('assistant.createPatient');
+    Route::post('/assistant/payment/record', [AssistantController::class, 'recordPayment'])->name('assistant.recordPayment');
+    Route::patch('/assistant/appointment/{id}/update', [AssistantController::class, 'updateAppointment'])->name('assistant.updateAppointment');
+    Route::post('/assistant/supply/add', [AssistantController::class, 'addWorkProduct'])->name('assistant.addWorkProduct');
+    Route::patch('/assistant/supply/{id}/update', [AssistantController::class, 'updateWorkProduct'])->name('assistant.updateWorkProduct');
+    Route::delete('/assistant/supply/{id}/delete', [AssistantController::class, 'deleteWorkProduct'])->name('assistant.deleteWorkProduct');
 });

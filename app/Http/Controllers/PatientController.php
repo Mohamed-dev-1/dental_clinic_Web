@@ -141,8 +141,11 @@ class PatientController extends Controller
             'appointment_time' => ['required'],
             'speciality'       => ['nullable', 'string'],
             'complaint'        => ['nullable', 'string', 'max:500'],
+            'allergies'        => ['nullable', 'string', 'max:500'],
+            'chronic_diseases' => ['nullable', 'string', 'max:500'],
         ]);
 
+        // Book the appointment
         Appointment::create([
             'patient_id'       => $patient->id,
             'doctor_id'        => $request->doctor_id,
@@ -152,6 +155,17 @@ class PatientController extends Controller
             'complaint'        => $request->complaint,
             'status'           => 'Pending',
         ]);
+
+        // Save or update medical notes at the same time
+        if ($request->allergies || $request->chronic_diseases) {
+            Note::updateOrCreate(
+                ['patient_id' => $patient->id],
+                [
+                    'allergies'        => $request->allergies,
+                    'chronic_diseases' => $request->chronic_diseases,
+                ]
+            );
+        }
 
         return redirect()->back()->with('success', 'Appointment booked successfully.');
     }

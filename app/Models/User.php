@@ -43,4 +43,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(Doctor::class);
     }
+
+    // A user can be an assistant
+    public function assistant()
+    {
+        return $this->hasOne(Assistant::class);
+    }
+
 }

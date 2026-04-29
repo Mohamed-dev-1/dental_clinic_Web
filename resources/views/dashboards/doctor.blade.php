@@ -110,7 +110,9 @@
                         <td>{{ $patient->user->email }}</td>
                         <td>{{ $patient->user->phone_number ?? '—' }}</td>
                         <td class="table-actions">
-                            <a href="{{ route('doctor.createMedical', $patient->id) }}" class="btn-action btn-blue">+ Medical file</a>
+                            <button class="btn-action btn-blue" onclick="openMedicalModal({{ $patient->id }}, '{{ $patient->user->firstname }} {{ $patient->user->lastname }}')">
+                                + Medical file
+                            </button>
                             <form method="POST" action="{{ route('doctor.deletePatient', $patient->id) }}">
                                 @csrf
                                 @method('DELETE')
@@ -227,14 +229,84 @@
         </div>
 
     </main>
+
+    <!-- MEDICAL FILE MODAL -->
+    <div id="medical-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <h3>Create Medical File</h3>
+                <button onclick="closeMedicalModal()" class="modal-close">✕</button>
+            </div>
+
+            <p class="modal-patient-name" id="modal-patient-name"></p>
+
+            <form method="POST" action="{{ route('doctor.storeMedical') }}" class="patient-form">
+                @csrf
+
+                <input type="hidden" name="patient_id" id="modal-patient-id">
+
+                <div class="patient-field">
+                    <label>Appointment</label>
+                    <select name="appointment_id" id="modal-appointment-select" required>
+                        <option value="">-- Select appointment --</option>
+                        @foreach($appointments as $appointment)
+                            <option value="{{ $appointment->id }}" data-patient="{{ $appointment->patient_id }}">
+                                #{{ $appointment->id }} —
+                                {{ $appointment->appointment_date }}
+                                ({{ $appointment->status }})
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="patient-field">
+                    <label>Diagnosis</label>
+                    <textarea name="diagnosis" rows="3" placeholder="Enter diagnosis..." required></textarea>
+                </div>
+
+                <div class="patient-field">
+                    <label>Treatment Plan</label>
+                    <textarea name="treatment_plan" rows="3" placeholder="Enter treatment plan..."></textarea>
+                </div>
+
+                <div class="patient-field">
+                    <label>Prescription</label>
+                    <textarea name="prescription" rows="3" placeholder="Enter prescription..."></textarea>
+                </div>
+
+                <button type="submit" class="patient-submit">Save Medical File</button>
+            </form>
+
+        </div>
+    </div>
+
 </div>
 
 <script>
-    function showSection(name) {
+    function showSection(name, el) {
         document.querySelectorAll('.dashboard-section').forEach(s => s.style.display = 'none');
         document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
         document.getElementById(name).style.display = 'block';
-        event.target.classList.add('active');
+        el.classList.add('active');
+    }
+
+    function openMedicalModal(patientId, patientName) {
+        document.getElementById('modal-patient-id').value = patientId;
+        document.getElementById('modal-patient-name').textContent = 'Patient: ' + patientName;
+
+        // Filter appointments by patient
+        const select = document.getElementById('modal-appointment-select');
+        Array.from(select.options).forEach(option => {
+            if (option.value === '') return;
+            option.style.display = option.dataset.patient == patientId ? 'block' : 'none';
+        });
+
+        document.getElementById('medical-modal').style.display = 'flex';
+    }
+
+    function closeMedicalModal() {
+        document.getElementById('medical-modal').style.display = 'none';
     }
 </script>
 
