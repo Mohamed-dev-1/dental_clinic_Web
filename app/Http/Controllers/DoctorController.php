@@ -37,18 +37,33 @@ class DoctorController extends Controller
 
     // Search a patient
     public function searchPatient(Request $request)
-    {
-        $query = $request->input('query');
+{
+    $query = $request->input('query');
+    $doctor = Auth::user()->doctor;
 
-        $patients = Patient::with('user')
-            ->whereHas('user', function($q) use ($query) {
-                $q->where('firstname', 'like', "%$query%")
-                    ->orWhere('lastname', 'like', "%$query%")
-                    ->orWhere('email', 'like', "%$query%");
-            })->get();
+    $patients = Patient::with('user')
+        ->whereHas('user', function($q) use ($query) {
+            $q->where('firstname', 'like', "%$query%")
+              ->orWhere('lastname', 'like', "%$query%")
+              ->orWhere('email', 'like', "%$query%");
+        })->get();
 
-        return view('dashboards.doctor', compact('patients'));
-    }
+    $appointments = Appointment::with('patient.user')
+        ->where('doctor_id', $doctor->id)
+        ->orderBy('appointment_date', 'asc')
+        ->get();
+
+    $pendingAppointments = $appointments->where('status', 'Pending');
+    $approvedAppointments = $appointments->where('status', 'Approved');
+
+    return view('dashboards.doctor', compact(
+        'doctor',
+        'patients',
+        'appointments',
+        'pendingAppointments',
+        'approvedAppointments'
+    ));
+}
 
     // Delete a patient
     public function deletePatient($id)
@@ -82,22 +97,51 @@ class DoctorController extends Controller
             'prescription'   => $request->prescription,
         ]);
 
-        return redirect()->back()->with('success', 'Medical document created successfully.');
+        // Notify the patient
+\App\Models\Notification::create([
+    'patient_id' => $request->patient_id,
+    'title'      => 'New Medical File',
+    'message'    => 'Your doctor has added a new medical file with diagnosis and treatment details.',
+    'type'       => 'new_medical_document',
+    'is_read'    => false,
+]);
+
+return redirect()->back()->with('success', 'Medical document created successfully.');
     }
 
     // Accept appointment
     public function acceptAppointment($id)
-    {
-        $appointment = Appointment::findOrFail($id);
-        $appointment->update(['status' => 'Approved']);
-        return redirect()->back()->with('success', 'Appointment approved.');
-    }
+{
+    $appointment = Appointment::findOrFail($id);
+    $appointment->update(['status' => 'Approved']);
+
+    // Notify the patient
+    \App\Models\Notification::create([
+        'patient_id' => $appointment->patient_id,
+        'title'      => 'Appointment Approved',
+        'message'    => 'Your appointment on ' . $appointment->appointment_date . ' at ' . $appointment->appointment_time . ' has been approved.',
+        'type'       => 'appointment_status',
+        'is_read'    => false,
+    ]);
+
+    return redirect()->back()->with('success', 'Appointment approved.');
+}
 
     // Reject appointment
     public function rejectAppointment($id)
-    {
-        $appointment = Appointment::findOrFail($id);
-        $appointment->update(['status' => 'Rejected']);
-        return redirect()->back()->with('success', 'Appointment rejected.');
-    }
+{
+    $appointment = Appointment::findOrFail($id);
+    $appointment->update(['status' => 'Rejected']);
+
+    // Notify the patient
+    \App\Models\Notification::create([
+        'patient_id' => $appointment->patient_id,
+        'title'      => 'Appointment Rejected',
+        'message'    => 'Your appointment on ' . $appointment->appointment_date . ' at ' . $appointment->appointment_time . ' has been rejected.',
+        'type'       => 'appointment_status',
+        'is_read'    => false,
+    ]);
+
+    return redirect()->back()->with('success', 'Appointment rejected.');
+}
 }
